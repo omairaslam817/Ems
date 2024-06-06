@@ -1,7 +1,6 @@
 ﻿using Ems.Core.Helpers;
 using Ems.Domain.Entities;
 using Ems.Domain.Repositories;
-using Ems.Infrastructure.DbContexts;
 using Ems.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;

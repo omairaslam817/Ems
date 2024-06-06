@@ -1,5 +1,5 @@
 ﻿using Ems.Domain.Repositories;
-using Ems.Infrastructure.DbContexts;
+using Ems.Persistence;
 
 namespace Ems.Persistence;
 

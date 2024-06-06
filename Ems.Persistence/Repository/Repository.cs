@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using Ems.Core.Helpers;
 using Ems.Domain.Interfaces;
-using Ems.Infrastructure.DbContexts;
+using Ems.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace Ems.Infrastructure.Repositories;
