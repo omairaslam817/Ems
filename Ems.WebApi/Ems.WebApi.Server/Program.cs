@@ -18,6 +18,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Scrutor;
 using System.Runtime.ConstrainedExecution;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -110,3 +111,7 @@ app.MapControllers();
 app.MapFallbackToFile("/index.html");
 
 app.Run();
+app.MapGet("/hello", (ClaimsPrincipal user) =>
+{
+    return $"Hello{user.Identity.Name}!";
+}).RequireAuthorization();

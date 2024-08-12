@@ -8,10 +8,13 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Ems.Application.Login;
+using System.Net;
+using Ems.Infrastructure.Authentication;
 
 namespace Gatherly.Presentation.Controllers;
 
 [Route("api/members")]
+[HasPermission(Permission.AccessMembers)]
 public sealed class MembersController : ApiController
 {
     public MembersController(ISender sender)
@@ -19,7 +22,7 @@ public sealed class MembersController : ApiController
     {
     }
 
-    [Authorize]
+    [HasPermission(Permission.ReadMember)] //Idea => Which memeber has which permission,how we are going to do this,we r going to define Roles,that will be Assign to members,For each role we are going to configure,which permission that role has.
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> GetMemberById(Guid id, CancellationToken cancellationToken)
     {
